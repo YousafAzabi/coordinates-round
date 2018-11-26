@@ -1,26 +1,32 @@
 //module to round coordinates to 7 decimal points
 
+
+const types = ['Point', 'MultiPoint', 'LineString', 'MultiLineString','Polygon', 'MultiPolygon'];
+
 //======== main function to round coordinates of given feature ===========
 exports.roundCoordinates = (feature, digits = 7) => {
   let coordinates = []; //declare coordinates array as empty
+  
   let geometry = feature.geometry; //
-  if (geometry.type == 'Point') {
+  if (geometry.type === 'Point') {
     geometry.coordinates[0] = round(geometry.coordinates[0], digits);
     geometry.coordinates[1] = round(geometry.coordinates[1], digits);
-  } else if (geometry.type === 'LineString' || geometry.type === 'MultiPoint') {
+  } else if (geometry.type === types[1] || geometry.type === types[2]) {
     //check geometry type if LineString call loop fn once
      geometry.coordinates = loop(geometry.coordinates, digits);
-  } else if (geometry.type === 'MultiLineString' || geometry.type === 'Polygon') {
+  } else if (geometry.type === types[3] || geometry.type === types[4]) {
     //if type MultiLineString call loop fn for each element
-    geometry.coordinates.forEach( coordinate =>
-      coordinates.push(loop(coordinate, digits))
-    );
-  } else if (geometry.type === 'MultiPolygon') {
     geometry.coordinates.forEach( array =>
-      array.forEach( coordinate => {
-        coordinates.push(loop(coordinate, digits))
+      coordinates.push(loop(array, digits))
+    );
+  } else if (geometry.type === types[5]) {
+    geometry.coordinates.forEach( parentArray =>
+      parentArray.forEach( childArray => {
+        coordinates.push(loop(childArray, digits))
       })
     );
+  } else {
+    throw 'Geometry type error! SHOULD BE one of: ' + types;
   }
   return feature; //return rounded coordinates
 }

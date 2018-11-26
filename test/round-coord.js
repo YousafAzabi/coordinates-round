@@ -68,4 +68,10 @@ describe('round-ccord.js to round coordinates to given decimal digits', () => {
     expect(output.geometry.coordinates).to.eql(expected);
   });
 
+  it('Test when feature is not of the supported types.', () => {
+    const input = turf.lineString([[1, 1] ,[1, 2.034]]);
+    input.geometry.type = 'anything';
+    const expected = 'SHOULD BE one of: Point,MultiPoint,LineString,MultiLineString,Polygon,MultiPolygon';
+    expect( () => { roundCoordinates(input) } ).throw(expected);
+  });
 });
