@@ -1,4 +1,6 @@
-<a href='https://coveralls.io/github/YousafAzabi/coordinates-round?branch=master'><img src='https://coveralls.io/repos/github/YousafAzabi/coordinates-round/badge.svg?branch=master' alt='Coverage Status' /></a>
+ [![Coverage Status](https://coveralls.io/repos/github/YousafAzabi/coordinates-round/badge.svg)](https://coveralls.io/github/YousafAzabi/coordinates-round)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FYousafAzabi%2Fcoordinates-round.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FYousafAzabi%2Fcoordinates-round?ref=badge_shield)
+ [![Build Status](https://travis-ci.com/YousafAzabi/coordinates-round.svg?branch=master)](https://travis-ci.com/YousafAzabi/coordinates-round)
 
 # Round Coordinates
 
