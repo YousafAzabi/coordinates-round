@@ -17,6 +17,14 @@ Takes a feature and rounds the coordinates of the feature to the specified digit
 | feature  | Feature | Feature to round its coordinates              |
 | digits   | Integer | Optinal, number of digits after decimal point |
 
+### supported features are:
+1. Point
+2. MultiPoint
+3. LineString
+4. MultiLineString
+5. Polygon
+6. MultiPolygon
+
 * Default value for `digits` is 7.
 
 ### Example
