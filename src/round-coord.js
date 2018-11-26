@@ -6,7 +6,9 @@ const types = ['Point', 'MultiPoint', 'LineString', 'MultiLineString','Polygon',
 //======== main function to round coordinates of given feature ===========
 exports.roundCoordinates = (feature, digits = 7) => {
   let coordinates = []; //declare coordinates array as empty
-  
+  if ( !feature.geometry || !feature.geometry.type) {
+    throw 'Input is NOT a feature!';
+  }
   let geometry = feature.geometry; //
   if (geometry.type === 'Point') {
     geometry.coordinates[0] = round(geometry.coordinates[0], digits);
