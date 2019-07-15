@@ -5,13 +5,13 @@
 
 # Round Coordinates
 
-Script to round coordinates of input feature to the given digits.
+Script to round coordinates of an input feature to the nearest decimal point to the given digits.
 
 ```
 roundCoordinates(feature, digits)
 ```
 
-Takes a feature and rounds the coordinates of the feature to the specified digits.
+Receive a feature with an optinal number of digits after the decimal point, and rounds the coordinates of the feature to the given digits.
 
 | Argument | Type    | Description                                   |
 |:---------|:--------|:----------------------------------------------|
